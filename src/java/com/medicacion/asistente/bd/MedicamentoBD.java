@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Juanjo
+ * @author Juan José Aguirre Sánchez
  */
 public class MedicamentoBD {
     public static ArrayList<Medicamento> getAllMedicamentos() throws Exception{
@@ -29,9 +29,9 @@ public class MedicamentoBD {
             
             while(rs.next()){
                 
-                medicamento = new Medicamento(rs.getInt("PK_ID"), rs.getString("nombre"), rs.getString("hora"));
+                medicamento = new Medicamento(rs.getInt("PK_ID"), rs.getString("nombre"), rs.getString("hora"), rs.getString("usuarioalarma"));
                 
-                medicamentos.add(medicamento);  
+                medicamentos.add(medicamento);
             }
             
             return medicamentos;
@@ -62,6 +62,7 @@ public class MedicamentoBD {
                 registro.setPK_ID(rs.getInt("PK_ID"));
                 registro.setNombre(rs.getString("nombre"));
                 registro.setHora(rs.getString("hora"));
+                registro.setHora(rs.getString("usuarioalarma"));
 
                 return registro;
             }
@@ -87,11 +88,16 @@ public class MedicamentoBD {
             String str;
             
             if (registro.getPK_ID() != -1) {
-                str = "INSERT INTO medicamento (PK_ID, nombre, hora) VALUES ("
-                        + registro.getPK_ID() + ",'" + registro.getNombre() + "','" + registro.getHora()+ "')";
+                str = "INSERT INTO medicamento (PK_ID, nombre, hora, usuarioalarma) VALUES ("
+                        + registro.getPK_ID() + ",'"
+                        + registro.getNombre() + "','"
+                        + registro.getHora() + "','"
+                        + registro.getUsuarioAlarma()+ "')";
             } else {
                 str = "INSERT INTO medicamento (nombre, hora) VALUES ("
-                        + "'" + registro.getNombre() + "','" + registro.getHora()+ "')";
+                        + "'" + registro.getNombre() + "','"
+                        + "'" + registro.getHora() + "','"
+                        + registro.getUsuarioAlarma()+ "')";
             }
 
             ps = conexion.prepareStatement(str);
@@ -136,6 +142,7 @@ public class MedicamentoBD {
             
             String str = "UPDATE medicamento SET nombre = '" + registro.getNombre() + "'"
                     + ", hora = '" + registro.getHora()+ "'"
+                    + ", usuarioalarma = '" + registro.getUsuarioAlarma()+ "'"
                     + " WHERE PK_ID = " + registro.getPK_ID();
             ps = conexion.prepareStatement(str);
 

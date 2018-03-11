@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Juanjo
+ * @author Juan José Aguirre Sánchez
  */
 @XmlRootElement
 public class Medicamento {
@@ -12,7 +12,7 @@ public class Medicamento {
     public int PK_ID;
     String nombre;
     String hora;
-    //String usuarioAlarma;
+    String usuarioAlarma;
 
     public Medicamento() {
     }
@@ -21,7 +21,13 @@ public class Medicamento {
         this.PK_ID = PK_ID;
         this.nombre = nombre;
         this.hora = hora;
-        //this.usuarioAlarma = usuarioAlarma;
+    }
+    
+    public Medicamento(int PK_ID, String nombre, String hora, String usuarioAlarma) {
+        this.PK_ID = PK_ID;
+        this.nombre = nombre;
+        this.hora = hora;
+        this.usuarioAlarma = usuarioAlarma;
     }
 
     public int getPK_ID() {
@@ -48,13 +54,12 @@ public class Medicamento {
         this.hora = hora;
     }
 
-//    public String getUsuarioAlarma() {
-//        return usuarioAlarma;
-//    }
-//
-//    public void setUsuarioAlarma(String usuarioAlarma) {
-//        this.usuarioAlarma = usuarioAlarma;
-//    }
-    
-    
+    public String getUsuarioAlarma() {
+        return usuarioAlarma;
+    }
+
+    public void setUsuarioAlarma(String usuarioAlarma) {
+        this.usuarioAlarma = usuarioAlarma;
+    }
+
 }
