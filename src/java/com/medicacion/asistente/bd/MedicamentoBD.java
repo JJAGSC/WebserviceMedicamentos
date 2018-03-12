@@ -62,7 +62,7 @@ public class MedicamentoBD {
                 registro.setPK_ID(rs.getInt("PK_ID"));
                 registro.setNombre(rs.getString("nombre"));
                 registro.setHora(rs.getString("hora"));
-                registro.setHora(rs.getString("usuarioalarma"));
+                registro.setUsuarioAlarma(rs.getString("usuarioalarma"));
 
                 return registro;
             }
@@ -92,12 +92,13 @@ public class MedicamentoBD {
                         + registro.getPK_ID() + ",'"
                         + registro.getNombre() + "','"
                         + registro.getHora() + "','"
-                        + registro.getUsuarioAlarma()+ "')";
+                        + registro.getUsuarioAlarma() + "')";
+                
             } else {
-                str = "INSERT INTO medicamento (nombre, hora) VALUES ("
+                str = "INSERT INTO medicamento (nombre, hora, usuarioalarma) VALUES ("
                         + "'" + registro.getNombre() + "','"
-                        + "'" + registro.getHora() + "','"
-                        + registro.getUsuarioAlarma()+ "')";
+                        + registro.getHora() + "','"
+                        + registro.getUsuarioAlarma() + "')";
             }
 
             ps = conexion.prepareStatement(str);

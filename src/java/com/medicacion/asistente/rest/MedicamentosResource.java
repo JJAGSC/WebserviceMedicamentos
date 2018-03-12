@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.medicacion.asistente.rest;
 
 import com.google.gson.Gson;
@@ -26,7 +21,7 @@ import javax.ws.rs.core.Response;
 /**
  * REST Web Service
  *
- * @author Juanjo
+ * @author Juan José Aguirre Sánchez
  */
 @Path("medicamentos")
 public class MedicamentosResource {

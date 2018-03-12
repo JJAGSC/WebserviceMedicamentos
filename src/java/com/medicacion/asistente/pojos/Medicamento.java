@@ -10,24 +10,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Medicamento {
     
     public int PK_ID;
-    String nombre;
-    String hora;
-    String usuarioAlarma;
+    String nombre="";
+    String hora="";
+    public String usuarioalarma="no";
 
     public Medicamento() {
+        
     }
 
-    public Medicamento(int PK_ID, String nombre, String hora) {
+    public Medicamento(int PK_ID, String nombre, String hora, String usuarioalarma) {
         this.PK_ID = PK_ID;
         this.nombre = nombre;
         this.hora = hora;
-    }
-    
-    public Medicamento(int PK_ID, String nombre, String hora, String usuarioAlarma) {
-        this.PK_ID = PK_ID;
-        this.nombre = nombre;
-        this.hora = hora;
-        this.usuarioAlarma = usuarioAlarma;
+        this.usuarioalarma = usuarioalarma;
     }
 
     public int getPK_ID() {
@@ -55,11 +50,11 @@ public class Medicamento {
     }
 
     public String getUsuarioAlarma() {
-        return usuarioAlarma;
+        return usuarioalarma;
     }
 
-    public void setUsuarioAlarma(String usuarioAlarma) {
-        this.usuarioAlarma = usuarioAlarma;
+    public void setUsuarioAlarma(String usuarioalarma) {
+        this.usuarioalarma = usuarioalarma;
     }
 
 }
